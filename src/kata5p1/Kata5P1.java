@@ -12,6 +12,7 @@ import java.sql.Statement;
 public class Kata5P1 {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        
         Class.forName("org.sqlite.JDBC");
         Connection connection = DriverManager.getConnection ("jdbc:sqlite:C:/Users/Entrar/Downloads/SQLiteDatabaseBrowserPortable/Data/KATA5.db");
         
@@ -23,6 +24,11 @@ public class Kata5P1 {
             System.out.println("ID = " + rs.getInt("id"));
             System.out.println("NAME = " + rs.getString("name"));
         }
+        
+        String query = "CREATE TABLE IF NOT EXISTS MAIL ('Id' INTEGER PRIMARY KEY AUTOINCREMENT , 'Mail' TEXT NOT NULL);";
+        statement.execute(query);
+            
+        
     }
     
 }
